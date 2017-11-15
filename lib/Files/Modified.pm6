@@ -30,14 +30,9 @@ This library is free software; you can redistribute it and/or modify it under th
 
 =end pod
 
-has File::Storage $.file-storage;
+has File::Storage $.file-storage is required;
 has @.file-extensions;
-has @.search-paths;
-
-submethod TWEAK() {
-    die "Need a file storage object to load/save my data" unless $!file-storage;
-    die "Parameter search-paths not set." unless @!search-paths.elems > 0;
-}
+has @.search-paths is required;
 
 #`(
 # compares the modification time of the files from fs and
