@@ -99,7 +99,7 @@ sub find-files(IO::Path $path, @file-extensions) {
 
     for $path.IO.dir -> $file {
         if $file.d {
-            @test-files.append(find-files($file));
+            @test-files.append(find-files($file, @file-extensions));
             next;
         }
 
