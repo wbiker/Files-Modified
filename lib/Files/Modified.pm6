@@ -67,7 +67,8 @@ method get-modified-files() {
 }
 
 method update-modification-date() {
-    self.get-modified-files();
+    my %file-modified = $!file-storage.load();
+    $!file-storage.save(%file-modified);
 }
 
 sub find-all-files($path, @file-extensions) {
